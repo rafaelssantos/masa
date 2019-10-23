@@ -1,2 +1,2 @@
-# spas
-Star plot-based Attribute Selection Approach
+# SPAS
+Star Plot-based Attribute Selection Approach
