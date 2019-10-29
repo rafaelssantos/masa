@@ -34,6 +34,9 @@
       <input type="file" id='btnFileChooser' accept='.json'>
       <button id='btnRun'> Run</button>
     </div>
+    
+		<canvas id="canvas" style="display: block; width: 540px; height: 270px;" width="540" height="270" class="chartjs-render-monitor"></canvas>
+	</div>
 
 
   </div>
