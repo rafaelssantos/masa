@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+html, body {
+    background: white;
+}
+
+
 .content{
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    background: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .content input{
@@ -10,13 +20,22 @@
 }
 
 .content .toolbar-container{
-    width: 100%;
+    width: calc(100% - 1rem);
     display: flex;
     flex-direction: column;
     flex-wrap:  nowrap;
     justify-content: flex-start;
+    background: #CCC;
+    padding: 0.5rem;
 }
 
-.content .toolbar-container #btnRun{
+.content .toolbar-container button{
     width: 10rem;
+}
+
+.content canvas{
+    background: white;
+    display: block; 
+    width: 20rem; 
+    height: 20rem;
 }

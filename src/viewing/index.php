@@ -12,12 +12,13 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/content.css">
 
-
+  <!-- Library -->
   <script src="javascript/lib/jquery/jquery-3.4.1.min.js"></script>  
-  <script async="" src="javascript/lib/chart-js-2.8.0/analytics.js"></script>
   <script src="javascript/lib/chart-js-2.8.0/Chart.min.js"></script>
-	<script src="javascript/lib/chart-js-2.8.0/utils.js"></script>
+  <script src="javascript/lib/chart-js-2.8.0/utils.js"></script>
 
+  <!--  -->
+  <script type="text/javascript" src="javascript/ChartManager.js"></script>
   <script type="text/javascript" src="javascript/load.js"></script>
 
 
@@ -32,10 +33,10 @@
   <div class='content'>
     <div class='toolbar-container'>
       <input type="file" id='btnFileChooser' accept='.json'>
-      <button id='btnRun'> Run</button>
+      <span><button id='btnRun'>Run</button><button id='btnClear'>Clear</button></span>
     </div>
     
-		<canvas id="canvas" style="display: block; width: 540px; height: 270px;" width="540" height="270" class="chartjs-render-monitor"></canvas>
+    <canvas id="canvas" style="display: block; width: 540px; height: 270px;" width="540" height="270" class="chartjs-render-monitor"></canvas>
 	</div>
 
 

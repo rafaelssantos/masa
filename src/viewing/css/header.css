@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo&display=swap');
+
 body, html{
     width: 100%;
     height: 100%;
@@ -12,9 +14,12 @@ header{
     align-items: center;
     justify-content: center;
     display: flex;
+    background: #777;
+    color: white;
 }
 
 
 header h1{
     font-size: 1.2rem;
+    font-family: 'Archivo', sans-serif;
 }
