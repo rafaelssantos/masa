@@ -50,6 +50,39 @@ class ChartManager{
 
 
 
+    buildHorizontalChart(title, elementId, attributeLabels){
+        var config = {
+            type: 'radar',
+            data: {
+                labels: attributeLabels
+            },
+            options: {
+                legend: {
+                    position: 'right',
+                },
+                title: {
+                    display: true,
+                    text: title
+                },
+                scale: {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                },
+                tooltips: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return data.datasets[tooltipItem.datasetIndex].label + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        }
+                    }
+                }
+            }
+         };
+        return new Chart($(elementId), config);
+    }
+
+
 
     buildRadarChart(title, elementId, attributeLabels){
         var config = {

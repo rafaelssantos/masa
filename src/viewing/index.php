@@ -39,6 +39,9 @@
       <div class='radar-div chart-container'>
         <canvas id='radar-canvas'></canvas>
       </div>
+      <div class='horizontal-div chart-container'>
+        <canvas id='horizontal-canvas-0'></canvas>
+      </div>
     </div>
 
 	</div>
