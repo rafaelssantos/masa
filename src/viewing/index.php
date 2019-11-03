@@ -28,12 +28,12 @@
 <body>
   <header>
     <div class='title-container'></div>
-    <h1>Meta Attribute-based Selection Approach (MASA)</h1>
+    <h1><span class='full-title'>Meta Attribute-based Selection Approach</span><span class='acronym-title'>MASA</span></h1>
   </header>
   <div class='content'>
     <div class='toolbar-container'>
       <input type="file" id='btnFileChooser' accept='.json'>
-      <span><button id='btnUpdate'>Load</button><button id='btnClear'>Clear</button></span>
+      <button id='btnUpdate'>Load</button><button id='btnClear'>Clear</button>
     </div>
     <div class='charts-div'>
       <div class='radar-div chart-container'>

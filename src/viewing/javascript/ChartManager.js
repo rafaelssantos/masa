@@ -47,6 +47,7 @@ class ChartManager{
     set colors(values){
         this._colors = values;
     }
+    
 
 
 
@@ -64,10 +65,10 @@ class ChartManager{
                 },
                 responsive: true,
                 legend: {
-                    position: 'right',
+                    position: 'bottom'
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: title
                 },
                 scales: {
@@ -88,7 +89,7 @@ class ChartManager{
 
 
 
-    buildRadarChart(title, elementId, attributeLabels){
+    buildRadarChart(title, elementId, attributeLabels, otherChart){
         var config = {
             type: 'radar',
             data: {
@@ -96,12 +97,13 @@ class ChartManager{
             },
             options: {
                 legend: {
-                    position: 'right',
+                    position: 'bottom'
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: title
                 },
+                aspectRatio: 1,
                 responsive: true,
                 scale: {
                     ticks: {
@@ -122,10 +124,28 @@ class ChartManager{
     }
 
 
+    vinculateLegends(chart1, chart2){
+        chart1.options.legend.onClick = function(e, legendItem){
+            var index = legendItem.datasetIndex;
+            chart1.data.datasets[index].hidden = !chart1.data.datasets[index].hidden;
+            chart2.data.datasets[index].hidden = !chart2.data.datasets[index].hidden;
+            chart1.update();
+            chart2.update();
+        }
+
+        chart2.options.legend.onClick = function(e, legendItem){
+            var index = legendItem.datasetIndex;
+            chart1.data.datasets[index].hidden = !chart1.data.datasets[index].hidden;
+            chart2.data.datasets[index].hidden = !chart2.data.datasets[index].hidden;
+            chart1.update();
+            chart2.update();
+        }
+    }
+
+
     addDataset(chart, attributeData, index) {
         var attrColorName = this.colorNames[chart.config.data.datasets.length % this.colorNames.length];
         var attrColor = this.colors[attrColorName];
-        // chart.data.labels.push();
         var dataset = {
             label: attributeData.scoreLabels[index],
             borderColor: attrColor,

@@ -10,7 +10,7 @@ header{
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    height: 3rem;
+    height: 1.6rem;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -23,4 +23,20 @@ header h1{
     font-size: 1.2rem;
     font-family: 'Archivo', sans-serif;
     text-align: center;
+}
+
+
+header h1 .acronym-title {
+    display: none;
+}
+
+
+@media (max-width: 25rem){
+    header h1 .acronym-title {
+        display: inline-block;
+    }
+
+    header h1 .full-title {
+        display: none;
+    }
 }

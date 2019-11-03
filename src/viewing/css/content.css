@@ -22,7 +22,7 @@ html, body {
 .content .toolbar-container{
     width: calc(100% - 1rem);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap:  nowrap;
     justify-content: flex-start;
     background: #CCC;
@@ -30,20 +30,32 @@ html, body {
 }
 
 .content .toolbar-container button{
-    width: 10rem;
+    width: 5rem;
 }
 
 .content .charts-div{
-    width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: column;
+    flex-direction: row;
+    padding-top: 1rem;
 }
 
 
 
 .content .charts-div .radar-div{
-    background: white;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+    /* width: 50rem; */
+    /* margin: auto; */
+}
+
+
+.content .charts-div .horizontal-div{
+    width: 60%;
+    display: flex;
+    align-items: center;
     /* position: relative; */
     /* width: 50rem; */
     /* margin: auto; */
