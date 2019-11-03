@@ -11,7 +11,7 @@ $(document).ready(function(){
          }
 
          window.chartData = JSON.parse(event.target.result);
-         window.chart = window.chartManager.buildRadarChart('All scores', '#canvas', window.chartData.attributeLabels);
+         window.chart = window.chartManager.buildRadarChart('All scores', '#radar-canvas', window.chartData.attributeLabels);
       };
       
       reader.onerror = function(event) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
    });
 
    
-   $('#btnRun').click(function (e) { 
+   $('#btnUpdate').click(function (e) { 
       if(window.chartManager != undefined && window.chart != undefined){
          window.chartManager.removeAll(window.chart);
 

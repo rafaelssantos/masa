@@ -33,9 +33,18 @@ html, body {
     width: 10rem;
 }
 
-.content canvas{
+.content .charts-div{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+
+
+.content .charts-div .radar-div{
     background: white;
-    display: block; 
-    width: 20rem; 
-    height: 20rem;
+    /* position: relative; */
+    /* width: 50rem; */
+    /* margin: auto; */
 }
