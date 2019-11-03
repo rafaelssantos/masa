@@ -7,10 +7,10 @@ body, html{
 
 
 header{
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 1.6rem;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 3rem;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -22,4 +22,5 @@ header{
 header h1{
     font-size: 1.2rem;
     font-family: 'Archivo', sans-serif;
+    text-align: center;
 }

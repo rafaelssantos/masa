@@ -12,8 +12,7 @@ $(document).ready(function(){
 
          window.chartData = JSON.parse(event.target.result);
          window.radarChart = window.chartManager.buildRadarChart('All scores', '#radar-canvas', window.chartData.attributeLabels);
-         window.horizontalChart = new Array();
-         window.horizontalChart.push(window.chartManager.buildHorizontalChart('#0', '#horizontal-canvas-0', window.chartData.attributeLabels));
+         window.horizontalChart = window.chartManager.buildHorizontalChart('#0', '#horizontal-canvas', window.chartData.attributeLabels);
       };
       
       reader.onerror = function(event) {
@@ -25,21 +24,35 @@ $(document).ready(function(){
 
    
    $('#btnUpdate').click(function (e) { 
-      if(window.chartManager != undefined && window.radarChart != undefined){
-         window.chartManager.removeAll(window.radarChart);
+      if(window.chartManager != undefined){
+         if(window.radarChart != undefined){
+            window.chartManager.removeAll(window.radarChart);
 
-         for(var i = 0; i < window.chartData.data.length; i++){
-            window.chartManager.addDataset(window.radarChart, window.chartData, i);
-            window.chartManager.addDataset(window.horizontalChart[0], window.chartData, i);
+            for(var i = 0; i < window.chartData.data.length; i++){
+               window.chartManager.addDataset(window.radarChart, window.chartData, i);
+               
+            }
+         }
+         if(window.horizontalChart != undefined){
+            window.chartManager.removeAll(window.horizontalChart);
 
+            for(var i = 0; i < window.chartData.data.length; i++){
+               window.chartManager.addDataset(window.horizontalChart, window.chartData, i);
+               
+            }
          }
       }
    });
 
 
    $('#btnClear').click(function (e) { 
-      if(window.chartManager != undefined && window.radarChart != undefined){
-        window.chartManager.removeAll(window.radarChart);
+      if(window.chartManager != undefined){
+         if(window.radarChart != undefined){
+            window.chartManager.removeAll(window.radarChart);
+         }
+         if(window.horizontalChart != undefined){
+            window.chartManager.removeAll(window.horizontalChart);
+         }
       }
    });
 });

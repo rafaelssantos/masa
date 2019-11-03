@@ -33,14 +33,14 @@
   <div class='content'>
     <div class='toolbar-container'>
       <input type="file" id='btnFileChooser' accept='.json'>
-      <span><button id='btnUpdate'>Update</button><button id='btnClear'>Clear</button></span>
+      <span><button id='btnUpdate'>Load</button><button id='btnClear'>Clear</button></span>
     </div>
     <div class='charts-div'>
       <div class='radar-div chart-container'>
         <canvas id='radar-canvas'></canvas>
       </div>
       <div class='horizontal-div chart-container'>
-        <canvas id='horizontal-canvas-0'></canvas>
+        <canvas id='horizontal-canvas'></canvas>
       </div>
     </div>
 
