@@ -52,11 +52,17 @@ class ChartManager{
 
     buildHorizontalChart(title, elementId, attributeLabels){
         var config = {
-            type: 'radar',
+            type: 'horizontalBar',
             data: {
                 labels: attributeLabels
             },
             options: {
+                elements: {
+                    rectangle: {
+                        borderWidth: 2,
+                    }
+                },
+                responsive: true,
                 legend: {
                     position: 'right',
                 },
@@ -64,21 +70,19 @@ class ChartManager{
                     display: true,
                     text: title
                 },
-                scale: {
-                    ticks: {
-                        beginAtZero: true
-                    }
-                },
-                tooltips: {
-                    enabled: true,
-                    callbacks: {
-                        label: function(tooltipItem, data) {
-                            return data.datasets[tooltipItem.datasetIndex].label + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true   // minimum value will be 0.
                         }
-                    }
+                    }]
                 }
             }
-         };
+        }
+      
         return new Chart($(elementId), config);
     }
 
@@ -98,6 +102,7 @@ class ChartManager{
                     display: true,
                     text: title
                 },
+                responsive: true,
                 scale: {
                     ticks: {
                         beginAtZero: true
