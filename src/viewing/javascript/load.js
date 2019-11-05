@@ -11,8 +11,8 @@ $(document).ready(function(){
          }
 
          window.chartData = JSON.parse(event.target.result);
-         window.radarChart = window.chartManager.buildRadarChart('All scores', '#radar-canvas', window.chartData.attributeLabels);
-         window.horizontalChart = window.chartManager.buildHorizontalChart('#0', '#horizontal-canvas', window.chartData.attributeLabels);
+         window.radarChart = window.chartManager.buildRadarChart('All scores', '#radar-canvas', window.chartData.scoreLabels);
+         window.horizontalChart = window.chartManager.buildHorizontalChart('#0', '#horizontal-canvas', window.chartData.scoreLabels);
          window.chartManager.vinculateLegends(window.radarChart, window.horizontalChart);
       };
       

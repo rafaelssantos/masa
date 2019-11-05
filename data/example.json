@@ -1,6 +1,6 @@
 {
-    "attributeLabels" : ["Intensity", ["Gradient", "Magnitude"], "Mean", "Entropy"],
-    "scoreLabels" : ["Z-asdf", "asdf"],
-    "name" : "Foort",
+    "attributeLabels" : ["Intensity", "Gradient Magnitude", "Mean", "Entropy"],
+    "scoreLabels" : ["X-score", "Y-score", "Z-score", "W-score"],
+    "name" : "Foot",
     "data" : [[5.6, 2.5, 2.7, 3.5], [3.6, 1.5, 1.7, 1.5]]
 }

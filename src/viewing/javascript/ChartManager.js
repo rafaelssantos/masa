@@ -51,11 +51,11 @@ class ChartManager{
 
 
 
-    buildHorizontalChart(title, elementId, attributeLabels){
+    buildHorizontalChart(title, elementId, scoreLabels){
         var config = {
             type: 'horizontalBar',
             data: {
-                labels: attributeLabels
+                labels: scoreLabels
             },
             options: {
                 elements: {
@@ -89,11 +89,11 @@ class ChartManager{
 
 
 
-    buildRadarChart(title, elementId, attributeLabels, otherChart){
+    buildRadarChart(title, elementId, scoreLabels, otherChart){
         var config = {
             type: 'radar',
             data: {
-                labels: attributeLabels
+                labels: scoreLabels
             },
             options: {
                 legend: {
@@ -147,7 +147,7 @@ class ChartManager{
         var attrColorName = this.colorNames[chart.config.data.datasets.length % this.colorNames.length];
         var attrColor = this.colors[attrColorName];
         var dataset = {
-            label: attributeData.scoreLabels[index],
+            label: attributeData.attributeLabels[index],
             borderColor: attrColor,
             backgroundColor: Chart.helpers.color(attrColor).alpha(0.2).rgbString(),
             pointStyle: 'rect',

@@ -4,10 +4,11 @@ import sys
 import numpy as np
 
 
-if ((len(sys.argv) == 3) and (sys.argv[1] == "-i" or sys.argv[1] == "--input")):
+if ((len(sys.argv) == 5) and (sys.argv[1] == "-i" or sys.argv[1] == "--input") and (sys.argv[1] == "-m" or sys.argv[1] == "--m")):
     
-    data = np.fromfile(sys.argv[2])                     #Reading a binary file of float array    
-    data = np.reshape(data, (data.shape[0]//12, 12))    #Reshaping to 12 columns
+    data = np.fromfile(sys.argv[2])                     #Reading a binary file of float array 
+    m = np.fromfile(sys.arg[4])   
+    data = np.reshape(data, (data.shape[0]//m, m))    #Reshaping to m columns
 
 
     print("Dataset " + sys.argv[2] + " loaded...")
@@ -16,7 +17,7 @@ if ((len(sys.argv) == 3) and (sys.argv[1] == "-i" or sys.argv[1] == "--input")):
 
 
     scaler = StandardScaler()                           #Z-score normalization
-    scaler.fit(data);                                   #Z-score normalization
+    scaler.fit(data)                                   #Z-score normalization
     normalizedData = scaler.transform(data)             #Z-score normalization
 
 

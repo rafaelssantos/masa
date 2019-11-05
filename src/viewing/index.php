@@ -28,7 +28,7 @@
 <body>
   <header>
     <div class='title-container'></div>
-    <h1><span class='full-title'>Meta Attribute-based Selection Approach</span><span class='acronym-title'>MASA</span></h1>
+    <h1><span class='full-title'>Meta Feature Selection Approach</span><span class='acronym-title'>MFSA</span></h1>
   </header>
   <div class='content'>
     <div class='toolbar-container'>
