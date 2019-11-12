@@ -36,13 +36,23 @@ html, body {
 .content .charts-div{
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.content .charts-div-bottom{
+    height: 30rem;
+}
+
+.content .charts-div-top{
+    display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     padding-top: 1rem;
 }
 
 
 
-.content .charts-div .radar-div{
+.content .charts-div-top .radar-div{
     width: 40%;
     display: flex;
     align-items: center;

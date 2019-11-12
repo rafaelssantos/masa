@@ -16,6 +16,9 @@
   <script src="javascript/lib/jquery/jquery-3.4.1.min.js"></script>  
   <script src="javascript/lib/chart-js-2.8.0/Chart.min.js"></script>
   <script src="javascript/lib/chart-js-2.8.0/utils.js"></script>
+  <script src="javascript/lib/highcharts/highcharts.js"></script>
+  <script src="javascript/lib/highcharts/modules/data.js"></script>
+  <script src="javascript/lib/highcharts/modules/parallel-coordinates.js"></script>
 
   <!--  -->
   <script type="text/javascript" src="javascript/ChartManager.js"></script>
@@ -36,11 +39,16 @@
       <button id='btnUpdate'>Load</button><button id='btnClear'>Clear</button>
     </div>
     <div class='charts-div'>
-      <div class='radar-div chart-container'>
-        <canvas id='radar-canvas'></canvas>
+      <div class='charts-div-top'>
+        <div class='radar-div chart-container'>
+          <canvas id='radar-canvas'></canvas>
+        </div>
+        <div class='horizontal-div chart-container'>
+          <canvas id='horizontal-canvas'></canvas>
+        </div>
       </div>
-      <div class='horizontal-div chart-container'>
-        <canvas id='horizontal-canvas'></canvas>
+      <div class='charts-div-bottom'>
+        <div id='parallel-coord-div'></div>
       </div>
     </div>
 
