@@ -106,7 +106,8 @@ class ChartJSBuilder extends ChartBuilder{
             backgroundColor: Chart.helpers.color(attrColor).alpha(0.2).rgbString(),
             pointStyle: 'rect',
             pointBackgroundColor: attrColor,
-            data: attData.data[attIndex],
+            data: attData.data[attIndex
+            ],
         };
 
         chart.config.data.datasets.push(dataset);
