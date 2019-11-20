@@ -7,14 +7,13 @@ $(document).ready(function(){
    
       reader.onload = function(event) {
          if(window.chartManager == undefined){
-            window.chartManager = new ChartManager();
+            window.chartManager = new ChartJSBuilder();
          }
 
          window.chartData = JSON.parse(event.target.result);
-         window.radarChart = window.chartManager.buildRadarChart('Scores', '#radar-canvas', window.chartData.scoreLabels);
-         window.horizontalChart = window.chartManager.buildHorizontalChart('Scores', '#horizontal-canvas', window.chartData.scoreLabels);
-         window.parallelCoord = window.chartManager.buildParallelCoord('Scores', 'parallel-coord-div', window.chartData.scoreLabels);
-         window.chartManager.vinculateLegends(window.radarChart, window.horizontalChart);
+         window.radarChart = window.chartManager.buildRadar('Scores', '#radar-canvas', window.chartData.scoreLabels);
+         window.horizontalChart = window.chartManager.buildHorizontalBar('Scores', '#horizontal-canvas', window.chartData.scoreLabels);
+         window.chartManager.bindLegends(window.radarChart, window.horizontalChart);
       };
       
       reader.onerror = function(event) {
@@ -32,7 +31,6 @@ $(document).ready(function(){
 
             for(var i = 0; i < window.chartData.data.length; i++){
                window.chartManager.addDataset(window.radarChart, window.chartData, i);
-               
             }
          }
          if(window.horizontalChart != undefined){

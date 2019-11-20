@@ -21,7 +21,9 @@
   <script src="javascript/lib/highcharts/modules/parallel-coordinates.js"></script>
 
   <!--  -->
-  <script type="text/javascript" src="javascript/ChartManager.js"></script>
+  <script type="text/javascript" src="javascript/ChartBuilder.js"></script>
+
+  <script type="text/javascript" src="javascript/ChartJSBuilder.js"></script>
   <script type="text/javascript" src="javascript/load.js"></script>
 
 
