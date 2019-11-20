@@ -22,8 +22,9 @@
 
   <!--  -->
   <script type="text/javascript" src="javascript/ChartBuilder.js"></script>
-
   <script type="text/javascript" src="javascript/ChartJSBuilder.js"></script>
+  <script type="text/javascript" src="javascript/HighChartsBuilder.js"></script>
+
   <script type="text/javascript" src="javascript/load.js"></script>
 
 
@@ -38,7 +39,7 @@
   <div class='content'>
     <div class='toolbar-container'>
       <input type="file" id='btnFileChooser' accept='.json'>
-      <button id='btnUpdate'>Load</button><button id='btnClear'>Clear</button>
+      <button id='btnLoad'>Load</button><button id='btnClear'>Clear</button>
     </div>
     <div class='charts-div'>
       <div class='charts-div-top'>

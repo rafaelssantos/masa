@@ -97,7 +97,7 @@ class ChartJSBuilder extends ChartBuilder{
     }
 
 
-    addDataset(chart, attData, attIndex) {
+    add(chart, attData, attIndex) {
         var attrColorName = this.colorNames[chart.config.data.datasets.length % this.colorNames.length];
         var attrColor = this.colors[attrColorName];
         var dataset = {
@@ -115,7 +115,7 @@ class ChartJSBuilder extends ChartBuilder{
     }
 
 
-    removeAll(chart) {
+    clear(chart) {
         var n = chart.config.data.datasets.length;
         chart.config.data.datasets.splice(0, n);
         chart.update();
