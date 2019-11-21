@@ -5,11 +5,11 @@ class ChartJSBuilder extends ChartBuilder{
 
 
 
-    buildHorizontalBar(title, containerId, labels){
+    buildHorizontalBar(id, title, yAxes){
         var config = {
             type: 'horizontalBar',
             data: {
-                labels: labels
+                labels: yAxes
             },
             options: {
                 elements: {
@@ -22,7 +22,7 @@ class ChartJSBuilder extends ChartBuilder{
                     position: 'bottom'
                 },
                 title: {
-                    display: false,
+                    display: true,
                     text: title
                 },
                 scales: {
@@ -38,23 +38,23 @@ class ChartJSBuilder extends ChartBuilder{
             }
         }
       
-        return new Chart($(containerId), config);
+        return new Chart($(id), config);
     }
 
 
 
-    buildRadar(title, containerId, labels){
-        var config = {
+    buildRadar(id, title, yAxes){
+        let config = {
             type: 'radar',
             data: {
-                labels: labels
+                labels: yAxes
             },
             options: {
                 legend: {
                     position: 'bottom'
                 },
                 title: {
-                    display: false,
+                    display: true,
                     text: title
                 },
                 aspectRatio: 1,
@@ -74,13 +74,13 @@ class ChartJSBuilder extends ChartBuilder{
                 }
             }
          };
-        return new Chart($(containerId), config);
+        return new Chart($(id), config);
     }
 
 
-    bindLegends(chart1, chart2){
+    vinculateLegend(chart1, chart2){
         chart1.options.legend.onClick = function(e, legendItem){
-            var index = legendItem.datasetIndex;
+            let index = legendItem.datasetIndex;
             chart1.data.datasets[index].hidden = !chart1.data.datasets[index].hidden;
             chart2.data.datasets[index].hidden = !chart2.data.datasets[index].hidden;
             chart1.update();
@@ -88,7 +88,7 @@ class ChartJSBuilder extends ChartBuilder{
         }
 
         chart2.options.legend.onClick = function(e, legendItem){
-            var index = legendItem.datasetIndex;
+            let index = legendItem.datasetIndex;
             chart1.data.datasets[index].hidden = !chart1.data.datasets[index].hidden;
             chart2.data.datasets[index].hidden = !chart2.data.datasets[index].hidden;
             chart1.update();
@@ -97,16 +97,16 @@ class ChartJSBuilder extends ChartBuilder{
     }
 
 
-    add(chart, series, label) {
-        var attrColorName = this.colorNames[chart.config.data.datasets.length % this.colorNames.length];
-        var attrColor = this.colors[attrColorName];
-        var dataset = {
-            label: label,
+    add(chart, values, xAXis) {
+        let attrColorName = this.colorNames[chart.config.data.datasets.length % this.colorNames.length];
+        let attrColor = this.colors[attrColorName];
+        let dataset = {
+            label: xAXis,
             borderColor: attrColor,
             backgroundColor: Chart.helpers.color(attrColor).alpha(0.2).rgbString(),
             pointStyle: 'rect',
             pointBackgroundColor: attrColor,
-            data: series,
+            data: values,
         };
 
         chart.config.data.datasets.push(dataset);
@@ -115,7 +115,7 @@ class ChartJSBuilder extends ChartBuilder{
 
 
     clear(chart) {
-        var n = chart.config.data.datasets.length;
+        let n = chart.config.data.datasets.length;
         chart.config.data.datasets.splice(0, n);
         chart.update();
     }

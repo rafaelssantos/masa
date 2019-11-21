@@ -14,10 +14,10 @@ $(document).ready(function(){
       fileReader.onload = function(event) {
          data = JSON.parse(event.target.result);
 
-         radarChart = chartJSBuilder.buildRadar('Scores', '#radar-canvas', data.yAxes);
-         horizontalChart = chartJSBuilder.buildHorizontalBar('Scores', '#horizontal-canvas', data.yAxes);
+         radarChart = chartJSBuilder.buildRadar('#radar-canvas', 'Scores', data.yAxes);
+         horizontalChart = chartJSBuilder.buildHorizontalBar('#horizontal-canvas', 'Scores', data.yAxes);
          
-         chartJSBuilder.bindLegends(radarChart, horizontalChart);
+         chartJSBuilder.vinculateLegend(radarChart, horizontalChart);
       };
       
 
