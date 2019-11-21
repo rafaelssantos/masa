@@ -97,17 +97,16 @@ class ChartJSBuilder extends ChartBuilder{
     }
 
 
-    add(chart, attData, attIndex) {
+    add(chart, series, label) {
         var attrColorName = this.colorNames[chart.config.data.datasets.length % this.colorNames.length];
         var attrColor = this.colors[attrColorName];
         var dataset = {
-            label: attData.attributeLabels[attIndex],
+            label: label,
             borderColor: attrColor,
             backgroundColor: Chart.helpers.color(attrColor).alpha(0.2).rgbString(),
             pointStyle: 'rect',
             pointBackgroundColor: attrColor,
-            data: attData.data[attIndex
-            ],
+            data: series,
         };
 
         chart.config.data.datasets.push(dataset);

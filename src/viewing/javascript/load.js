@@ -1,66 +1,57 @@
 $(document).ready(function(){
-
-   $('#btnFileChooser').change(function (e) { 
-      window.chartJSErrorMessage = null;
-      
-      var reader = new FileReader();
+   var data = null;
    
-      reader.onload = function(event) {
-         if(window.chartJSBuilder == undefined){
-            window.chartJSBuilder = new ChartJSBuilder();
-         }
-         if(window.highChartsBuilder == undefined){
-            window.highChartsBuilder = new HighChartsBuilder();
-         }
+   var radarChart = null;
+   var horizontalChart = null;
+   var parallelCoordChart = null;
 
-         window.chartData = JSON.parse(event.target.result);
-         window.radarChart = window.chartJSBuilder.buildRadar('Scores', '#radar-canvas', window.chartData.scoreLabels);
-         window.horizontalChart = window.chartJSBuilder.buildHorizontalBar('Scores', '#horizontal-canvas', window.chartData.scoreLabels);
-         window.chartJSBuilder.bindLegends(window.radarChart, window.horizontalChart);
+   let chartJSBuilder = new ChartJSBuilder();
+
+
+   $('#btnFileChooser').change(function (e) {   
+      let fileReader = new FileReader();
+
+      fileReader.onload = function(event) {
+         data = JSON.parse(event.target.result);
+
+         radarChart = chartJSBuilder.buildRadar('Scores', '#radar-canvas', data.yAxes);
+         horizontalChart = chartJSBuilder.buildHorizontalBar('Scores', '#horizontal-canvas', data.yAxes);
+         
+         chartJSBuilder.bindLegends(radarChart, horizontalChart);
       };
       
-      reader.onerror = function(event) {
-         window.chartJSErrorMessage  = event.target.error.message;
-      };
-      
-      reader.readAsText(this.files[0]);
-   });
 
-   
-   $('#btnLoad').click(function (e) { 
-      if(window.chartJSBuilder != undefined){
-         if(window.radarChart != undefined){
-            window.chartJSBuilder.clear(window.radarChart);
-
-            for(var i = 0; i < window.chartData.data.length; i++){
-               window.chartJSBuilder.add(window.radarChart, window.chartData, i);
-            }
-         }
-         if(window.horizontalChart != undefined){
-            window.chartJSBuilder.clear(window.horizontalChart);
-
-            for(var i = 0; i < window.chartData.data.length; i++){
-               window.chartJSBuilder.add(window.horizontalChart, window.chartData, i);
-               
-            }
-         }
-      }
-
-      if(window.highChartsBuilder != undefined){
-         window.parallelCoord = window.highChartsBuilder.buildParallelCoord('Scores', '#parallel-coord-div', window.chartData.scoreLabels);
-      }
-    
+      fileReader.readAsText(this.files[0]);
    });
 
 
-   $('#btnClear').click(function (e) { 
-      if(window.chartJSBuilder != undefined){
-         if(window.radarChart != undefined){
-            window.chartJSBuilder.clear(window.radarChart);
+   
+   $('#btnLoad').click(function (e) {
+      if(radarChart != null){
+         chartJSBuilder.clear(radarChart);
+
+         for(let i = 0; i < data.xAxes.length; i++){
+            chartJSBuilder.add(radarChart, data.values[i], data.xAxes[i]);
          }
-         if(window.horizontalChart != undefined){
-            window.chartJSBuilder.clear(window.horizontalChart);
+      }
+
+
+      if(horizontalChart != null){
+         chartJSBuilder.clear(horizontalChart);
+
+         for(let i = 0; i < data.xAxes.length; i++){
+            chartJSBuilder.add(horizontalChart, data.values[i], data.xAxes[i]);
          }
+      }    
+   });
+
+
+   $('#btnClear').click(function (e) {
+      if(radarChart != null){
+         chartJSBuilder.clear(radarChart);
+      }
+      if(horizontalChart != null){
+         chartJSBuilder.clear(horizontalChart);
       }
    });
 });
