@@ -3,9 +3,11 @@ $(document).ready(function(){
    
    var radarChart = null;
    var horizontalChart = null;
-   var parallelCoordChart = null;
+   var parCoord = null;
 
    let chartJSBuilder = new ChartJSBuilder();
+   let d3VisBuilder = new D3VisBuilder();
+
 
 
    $('#btnFileChooser').change(function (e) {   
@@ -42,7 +44,12 @@ $(document).ready(function(){
          for(let i = 0; i < data.xAxes.length; i++){
             chartJSBuilder.add(horizontalChart, data.values[i], data.xAxes[i]);
          }
-      }    
+      }
+      
+      if(data != null){
+         parCoord = d3VisBuilder.buildParCoord("#par-coord-div", data.json);
+      }
+      
    });
 
 
