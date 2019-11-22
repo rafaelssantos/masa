@@ -1,0 +1,93 @@
+<script src="d3.v3.min.js"></script>
+<script src="d3.parcoords.js"></script>
+<link rel="stylesheet" type="text/css" href="d3.parcoords.css">
+<div id="example" class="parcoords" style="width:600px;height:500px"></div>
+
+<script>
+
+
+
+// var data = [
+//   // [-1, "b", "c", "d", "e", "f"],
+//   [0,-0,0,0,0,3 ],
+//   [1,-1,1,2,1,6 ],
+//   [2,-2,4,4,0.5,2],
+//   [3,-3,9,6,0.33,4],
+//   [4,-4,16,8,0.25,9]
+// ];
+
+
+var data = [
+{'a': 'Rafael', 'b': 1, 'c': 2.5, 'd': 4},
+{'a': 'Top', 'b': 4, 'c': 2.5, 'd': 4},
+{'a': 'Top2', 'b': 1, 'c': 1.5, 'd': 3}
+
+];
+console.log(data[0]);
+
+function change_color(parc, dimension) {
+  parc.svg.selectAll(".dimension")
+    .style("font-weight", "normal")
+    .filter(function(d) { return d == dimension; })
+    .style("font-weight", "bold")
+
+    parc.color(zcolor(parc.data(),dimension)).render()
+}
+
+var pc = d3.parcoords()("#example")
+  .data(data)
+  // .hideAxis(0)
+  .render()
+  .createAxes()
+  .composite("darken")
+  .alpha(0.5)
+  .mode("queue")
+  .brushMode("1D-axes");
+
+  pc.reorderable();
+
+// var zcolorscale = d3.scale.linear()
+//   .domain([-2,-0.5,0.5,2])
+//   .range(["brown", "#999", "#999", "steelblue"])
+//   .interpolate(d3.interpolateLab);
+
+
+//   // update color
+// function change_color(dimension) {
+//   pc.svg.selectAll(".dimension")
+//     .style("font-weight", "normal")
+//     .filter(function(d) { return d == dimension; })
+//     .style("font-weight", "bold")
+
+//   pc.color(zcolor(pc.data(),dimension)).render()
+// }
+
+//   change_color("weight (lb)");
+
+//   // click label to activate coloring
+//   pc.svg.selectAll(".dimension")
+//     .on("click", change_color)
+//     .selectAll(".label")
+//     .style("font-size", "14px");
+
+
+
+// // return color function based on plot and dimension
+// function zcolor(col, dimension) {
+//   var z = zscore(_(col).pluck(dimension).map(parseFloat))
+//   return function(d) { return zcolorscale(z(d[dimension])) }
+// };
+
+// // color by zscore
+// function zscore(col) {
+//   var n = col.length,
+//       mean = _(col).mean(),
+//       sigma = _(col).stdDeviation();
+//   return function(d) {
+//     return (d-mean)/sigma;
+//   };
+// };
+
+
+//   pc.dimensions()[0].title = "Ola";
+</script>

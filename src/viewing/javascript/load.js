@@ -15,7 +15,7 @@ $(document).ready(function(){
          data = JSON.parse(event.target.result);
 
          radarChart = chartJSBuilder.buildRadar('#radar-canvas', 'Scores', data.yAxes);
-         horizontalChart = chartJSBuilder.buildHorizontalBar('#horizontal-canvas', 'Scores', data.yAxes);
+         horizontalChart = chartJSBuilder.buildHorizontalBars('#horizontal-canvas', 'Scores', data.yAxes);
          
          chartJSBuilder.vinculateLegend(radarChart, horizontalChart);
       };

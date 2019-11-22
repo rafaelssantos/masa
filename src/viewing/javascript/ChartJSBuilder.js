@@ -5,7 +5,7 @@ class ChartJSBuilder extends ChartBuilder{
 
 
 
-    buildHorizontalBar(id, title, yAxes){
+    buildHorizontalBars(id, title, yAxes){
         var config = {
             type: 'horizontalBar',
             data: {
