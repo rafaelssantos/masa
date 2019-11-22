@@ -10,11 +10,12 @@ header{
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    height: 1.6rem;
+    height: 2rem;
     align-items: center;
     justify-content: center;
-    display: flex;
-    background: #777;
+    /* display: flex; */
+    display: none;
+    background: #444;
     color: white;
 }
 

@@ -22,7 +22,7 @@ class ChartJSBuilder extends ChartBuilder{
                     position: 'bottom'
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: title
                 },
                 scales: {
@@ -54,7 +54,7 @@ class ChartJSBuilder extends ChartBuilder{
                     position: 'bottom'
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: title
                 },
                 aspectRatio: 1,

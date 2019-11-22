@@ -38,33 +38,37 @@
 
 
 <body>
-  <header>
+  <!-- <header>
     <div class='title-container'></div>
     <h1><span class='full-title'>Meta Feature Selection based on Clustering and Visualization (MFS-CluVis)</span><span class='acronym-title'>MFSA</span></h1>
-  </header>
+  </header> -->
 
 
   <div class='content'>
-    <div class='toolbar-container'>
+    <div class='toolbar'>
       <input type="file" id='btnFileChooser' accept='.json'>
       <button id='btnLoad'>Load</button><button id='btnClear'>Clear</button>
+
+      <span><input type="checkbox" checked id='radar-button'>Radar</span>
+      <span><input type="checkbox" checked id='horizontal-button'>Horizontal Bar</span>
+      <span><input type="checkbox" checked id='parcoord-button'>Parallel Coordinates</span>
     </div>
 
 
-    <div class='charts-div'>
-      <div class='charts-div-top'>
-        <div class='radar-div chart-container'>
-          <canvas id='radar-canvas'></canvas>
+    <div class='charts-container'>
+      <div class='charts-container-top'>
+        <div class='radar-container'>
+          <canvas id='radar-vis'></canvas>
         </div>
 
-        <div class='horizontal-div chart-container'>
-          <canvas id='horizontal-canvas'></canvas>
+        <div class='horizontal-container'>
+          <canvas id='horizontal-vis'></canvas>
         </div>
 
       </div>
       
-      <div class='charts-div-bottom'>
-        <div id='par-coord-div'class='parcoords' style='width:600px;height:500px'></div>
+      <div class='charts-container-bottom'>
+        <div id='parcoord-vis'class='parcoords parcoord-container'></div>
       </div>
     </div>
 
