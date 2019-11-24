@@ -34,7 +34,16 @@ $(document).ready(function(){
             chartJSBuilder.add(horizontalChart, data.values[i], data.xAxes[i]);
          }
 
+         // $('.parcoord-container').css('height', '30rem');
+         let parcoordHeight = (data.xAxes.length * 2 + 5);
+
+         if(parcoordHeight > 30){
+            parcoordHeight = 30
+         }
+
+         $(".parcoord-container").css('height', parcoordHeight + "rem");
          parCoord = d3VisBuilder.buildParCoord("#parcoord-vis", data.json);
+
 
       };
       

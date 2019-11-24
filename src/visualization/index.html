@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/charts.css">
+
 
 
   <!-- JS libs -------------------------------------------------------------->
@@ -49,9 +51,9 @@
       <input type="file" id='btnFileChooser' accept='.json'>
       <button id='btnLoad'>Load</button><button id='btnClear'>Clear</button>
 
-      <span><input type="checkbox" checked id='radar-button'>Radar</span>
-      <span><input type="checkbox" checked id='horizontal-button'>Horizontal Bar</span>
-      <span><input type="checkbox" checked id='parcoord-button'>Parallel Coordinates</span>
+      <span class='chartchooserspan'><input type="checkbox" checked id='radar-button'>Radar</span>
+      <span class='chartchooserspan'><input type="checkbox" checked id='horizontal-button'>Horizontal Bar</span>
+      <span class='chartchooserspan'><input type="checkbox" checked id='parcoord-button'>Parallel Coordinates</span>
     </div>
 
 
@@ -64,7 +66,6 @@
         <div class='horizontal-container'>
           <canvas id='horizontal-vis'></canvas>
         </div>
-
       </div>
       
       <div class='charts-container-bottom'>
