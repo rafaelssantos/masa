@@ -43,8 +43,6 @@ $(document).ready(function(){
 
          $(".parcoord-container").css('height', parcoordHeight + "rem");
          parCoord = d3VisBuilder.buildParCoord("#parcoord-vis", data.json);
-
-
       };
       
 
