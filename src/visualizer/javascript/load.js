@@ -24,18 +24,18 @@ $(document).ready(function(){
       fileReader.onload = function(event) {
          data = JSON.parse(event.target.result);
 
-         radarChart = chartJSBuilder.buildRadar('#radar-vis', 'Scores', data.yAxes);
-         horizontalChart = chartJSBuilder.buildHorizontalBars('#horizontal-vis', 'Scores', data.yAxes);
+         radarChart = chartJSBuilder.buildRadar('#radar-vis', 'Scores', data.scoreLabels);
+         horizontalChart = chartJSBuilder.buildHorizontalBars('#horizontal-vis', 'Scores', data.scoreLabels);
          
          chartJSBuilder.vinculateLegend(radarChart, horizontalChart);
 
-         for(let i = 0; i < data.xAxes.length; i++){
-            chartJSBuilder.add(radarChart, data.values[i], data.xAxes[i]);
-            chartJSBuilder.add(horizontalChart, data.values[i], data.xAxes[i]);
+         for(let i = 0; i < data.featureLabels.length; i++){
+            chartJSBuilder.add(radarChart, data.values[i], data.featureLabels[i]);
+            chartJSBuilder.add(horizontalChart, data.values[i], data.featureLabels[i]);
          }
 
          // $('.parcoord-container').css('height', '30rem');
-         let parcoordHeight = (data.xAxes.length * 2 + 5);
+         let parcoordHeight = (data.featureLabels.length * 2 + 5);
 
          if(parcoordHeight > 30){
             parcoordHeight = 30
@@ -55,8 +55,8 @@ $(document).ready(function(){
       // if(radarChart != null){
       //    chartJSBuilder.clear(radarChart);
 
-      //    for(let i = 0; i < data.xAxes.length; i++){
-      //       chartJSBuilder.add(radarChart, data.values[i], data.xAxes[i]);
+      //    for(let i = 0; i < data.featureLabels.length; i++){
+      //       chartJSBuilder.add(radarChart, data.values[i], data.featureLabels[i]);
       //    }
       // }
 
@@ -64,8 +64,8 @@ $(document).ready(function(){
       // if(horizontalChart != null){
       //    chartJSBuilder.clear(horizontalChart);
 
-      //    for(let i = 0; i < data.xAxes.length; i++){
-      //       chartJSBuilder.add(horizontalChart, data.values[i], data.xAxes[i]);
+      //    for(let i = 0; i < data.featureLabels.length; i++){
+      //       chartJSBuilder.add(horizontalChart, data.values[i], data.featureLabels[i]);
       //    }
       // }
       

@@ -1,8 +1,8 @@
 {
-    "yAxes" : ["X-score", "Y-score", "Z-score", "W-score"],
+    "scoreLabels" : ["X-score", "Y-score", "Z-score", "W-score"],
     "title" : "Foot",
     "values" : [[5.6, 2.5, 2.7, 3.5], [3.6, 1.5, 1.7, 1.5], [4.6, 2.0, 1.0, 1.0], [2.1, 1.1, 0.7, 1.3]],
-    "xAxes" : ["Intensity", "1nd Gradient", "Mean", "Entropy"],
+    "featureLabels" : ["Intensity", "1nd Gradient", "Mean", "Entropy"],
     "json" : [
         {"name" : "Intensity",          "X-score" : 5.6, "Y-score" : 2.5, "Z-score" : 2.5, "W-score" : 3.5},
         {"name" : "1nd Gradient", "X-score" : 3.6, "Y-score" : 1.5, "Z-score" : 1.7, "W-score" : 1.5},
