@@ -1,5 +1,6 @@
 import numpy
 import score_functions
+import json
 
 
 
@@ -47,14 +48,21 @@ def calc_scores(feature_data):
 def generate_dict(feature_labels, score_labels, score_data, title=''):
     values_keys = list(score_labels)
     values_keys.insert(0, 'name')
+
     json = []
     values = []
 
     for i in range(0, len(score_data), 1):
         values.append(score_data[i].tolist())
-        json_score_line = score_data[i].tolist()
-        json_score_line.insert(0, feature_labels[i])
-        json.append(dict(zip(values_keys, json_score_line)))
+        for k in  range(0, len(feature_labels), 1):
+            json_element = {}
+            json_element['name'] = feature_labels[k]
+            json_element[score_labels[i]] = score_data[i][k]
+            json.append(json_element)
+
+        # json_score_line = score_data[i].tolist()
+        # json_score_line.insert(0, feature_labels[i])
+        # json.append(dict(zip(values_keys, json_score_line)))
 
     result_dict = {}
     result_dict['scoreLabels'] = score_labels
@@ -66,3 +74,8 @@ def generate_dict(feature_labels, score_labels, score_data, title=''):
     return result_dict
 
 
+
+
+def save_as_json(dict_data, file_path):
+    file = open(file_path, 'w')
+    json.dump(dict_data, file, sort_keys=False, indent=4)

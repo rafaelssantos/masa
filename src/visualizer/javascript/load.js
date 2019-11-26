@@ -34,7 +34,6 @@ $(document).ready(function(){
             chartJSBuilder.add(horizontalChart, data.values[i], data.featureLabels[i]);
          }
 
-         // $('.parcoord-container').css('height', '30rem');
          let parcoordHeight = (data.featureLabels.length * 2 + 5);
 
          if(parcoordHeight > 30){
