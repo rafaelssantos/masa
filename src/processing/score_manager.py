@@ -50,11 +50,12 @@ def generate_dict(feature_labels, score_labels, score_data, title=''):
     values_keys.insert(0, 'name')
 
     json = []
-    values = []
+    values = [[0 for x in range(len(score_labels))] for y in range(len(feature_labels))] 
 
     for i in range(0, len(score_data), 1):
-        values.append(score_data[i].tolist())
+        data = score_data[i].tolist()
         for k in  range(0, len(feature_labels), 1):
+            values[k][i] = data[k]
             json_element = {}
             json_element['name'] = feature_labels[k]
             json_element[score_labels[i]] = score_data[i][k]
