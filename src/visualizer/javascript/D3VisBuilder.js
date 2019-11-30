@@ -3,18 +3,22 @@ class D3VisBuilder extends ChartBuilder{
         super();
     }
 
-    buildParCoord(id, data){
+    buildParCoord(id){
         var chart = d3.parcoords()(id)
-            .data(data)
-            // .hideAxis(0)
-            .render()
-            .createAxes()
             .composite("darken")
             .alpha(0.5)
             .mode("queue")
-            .brushMode("1D-axes")
-            .reorderable();
             
         return chart;
+    }
+
+
+    updateData(chart, data){
+        chart.data(data)
+        // .hideAxis(0)
+        .render()
+        .createAxes()
+        .brushMode("1D-axes")
+        .reorderable();
     }
 } 

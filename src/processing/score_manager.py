@@ -33,10 +33,11 @@ def load_data(file_path):
 
 def calc_scores(feature_data):
     labels = []
-    labels.append('Laplacian')
+    labels.append('Laplacian Score')
+    labels.append('SPEC')
+
 
     data = []
-    # scores.calc_lap_score(feature_data)
     data.append(score_functions.calc_lap_score(feature_data))
 
     return data, labels

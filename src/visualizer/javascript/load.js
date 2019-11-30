@@ -23,7 +23,15 @@ $(document).ready(function(){
       
       fileReader.onload = function(event) {
          data = JSON.parse(event.target.result);
+         if(radarChart != null){
+            radarChart.destroy();
+         }
+         if(horizontalChart != null){
+            horizontalChart.destroy();
+         }
 
+
+         
          radarChart = chartJSBuilder.buildRadar('#radar-vis', 'Scores', data.scoreLabels);
          horizontalChart = chartJSBuilder.buildHorizontalBars('#horizontal-vis', 'Scores', data.scoreLabels);
          
@@ -41,7 +49,10 @@ $(document).ready(function(){
          }
 
          $(".parcoord-container").css('height', parcoordHeight + "rem");
-         parCoord = d3VisBuilder.buildParCoord("#parcoord-vis", data.json);
+         if(parCoord == null){
+            parCoord = d3VisBuilder.buildParCoord("#parcoord-vis");
+         }
+         d3VisBuilder.updateData(parCoord, data.json);
       };
       
 
