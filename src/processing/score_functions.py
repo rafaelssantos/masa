@@ -1,6 +1,5 @@
 from skfeature.function.similarity_based import lap_score
 from skfeature.function.similarity_based import SPEC
-
 from skfeature.function.sparse_learning_based import MCFS
 from skfeature.function.sparse_learning_based import NDFS
 from skfeature.function.sparse_learning_based import UDFS

@@ -48,7 +48,7 @@ def main():
     else :
         feature_labels = scmanager.load_labels(feature_labels_file_path)
         feature_data = scmanager.load_data(feature_data_file_path)
-        score_data, score_labels = scmanager.calc_scores(feature_data)
+        score_data, score_labels = scmanager.calc_scores(feature_data, n_features)
 
         result_dict = scmanager.generate_dict(feature_labels, score_labels, score_data)
 
