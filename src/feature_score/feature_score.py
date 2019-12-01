@@ -1,5 +1,5 @@
 import sys
-import score_manager as scmanager
+import manager
 
 
 
@@ -46,13 +46,13 @@ def main():
         print("Incorret parameters.\nType -h or --help for help.")
     
     else :
-        feature_labels = scmanager.load_labels(feature_labels_file_path)
-        feature_data = scmanager.load_data(feature_data_file_path)
-        standardized, non_standardized, score_labels = scmanager.calc_scores(feature_data, n_features)
+        feature_labels = manager.load_labels(feature_labels_file_path)
+        feature_data = manager.load_data(feature_data_file_path)
+        standardized, non_standardized, score_labels = manager.calc_scores(feature_data, n_features)
 
-        result_dict = scmanager.generate_dict(feature_labels, score_labels, standardized, non_standardized)
+        result_dict = manager.generate_dict(feature_labels, score_labels, standardized, non_standardized)
 
-        scmanager.save_as_json(result_dict, output_path)
+        manager.save_as_json(result_dict, output_path)
 
 
 if __name__ == "__main__":

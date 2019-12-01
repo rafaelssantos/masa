@@ -1,5 +1,5 @@
 import numpy
-import score_functions
+import score_calc
 import json
 
 
@@ -37,35 +37,35 @@ def calc_scores(features, n):
     non_standardized = []
     
     labels.append('Laplacian Score') 
-    result_lap_score = score_functions.calc_lap_score(features)
+    result_lap_score = score_calc.calc_lap_score(features)
     min_lap_score =  numpy.min(result_lap_score)
     range_lap_score = numpy.ptp(result_lap_score)
     standardized.append((result_lap_score - min_lap_score) / range_lap_score)
     non_standardized.append(result_lap_score)
 
     labels.append('MCFS')
-    result_mcfs = score_functions.calc_MCFS(features, n)
+    result_mcfs = score_calc.calc_MCFS(features, n)
     min_mcfs =  numpy.min(result_mcfs)
     range_mcfs = numpy.ptp(result_mcfs)
     standardized.append((result_mcfs - min_mcfs) / range_mcfs)
     non_standardized.append(result_mcfs)
 
     labels.append('NDFS')
-    result_ndfs = score_functions.calc_NDFS(features)
+    result_ndfs = score_calc.calc_NDFS(features)
     min_ndfs =  numpy.min(result_ndfs)
     range_ndfs = numpy.ptp(result_ndfs)
     standardized.append((result_ndfs - min_ndfs) / range_ndfs)
     non_standardized.append(result_ndfs)
 
     labels.append('SPEC')
-    result_spec = score_functions.calc_SPEC(features)
+    result_spec = score_calc.calc_SPEC(features)
     min_spec =  numpy.min(result_spec)
     range_spec = numpy.ptp(result_spec)
     standardized.append((result_spec - min_spec) / range_spec)
     non_standardized.append(result_spec)
 
     labels.append('UDFS')
-    result_udfs = score_functions.calc_UDFS(features)
+    result_udfs = score_calc.calc_UDFS(features)
     min_udfs =  numpy.min(result_udfs)
     range_udfs = numpy.ptp(result_udfs)
     standardized.append((result_udfs - min_udfs) / range_udfs)
