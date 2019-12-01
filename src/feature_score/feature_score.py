@@ -11,7 +11,13 @@ def extract_params():
 
     n_features = None
 
-    if len(sys.argv) >= PARAM_COUNT:
+    if len(sys.argv) == 2 and (sys.argv[1] == "-h" or sys.argv[1] == "--help"):
+        print ("--input or -i\t\tFile path that contains the dataset")
+        print ("--label or -l\t\tFile path that contains the labels of each feature in the dataset")
+        print ("--n-features or -n\tNumber of features")
+        print ("--output or -o\t\tFile path to save the result of the processing")
+        exit()
+    elif len(sys.argv) >= PARAM_COUNT:
         for i in range(1, len(sys.argv), 2):
             if sys.argv[i] == "-i" or sys.argv[i] == "--input":
                 i = i + 1
