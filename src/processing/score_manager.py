@@ -31,33 +31,54 @@ def load_data(file_path):
 
 
 
-def calc_scores(feature_data, n_features):
+def calc_scores(features, n):
     labels = []
-    data = []
+    standardized = []
+    non_standardized = []
     
-    labels.append('Laplacian Score')  
-    data.append(score_functions.calc_lap_score(feature_data))
-
-    labels.append('SPEC')
-    data.append(score_functions.calc_SPEC(feature_data))
+    labels.append('Laplacian Score') 
+    result_lap_score = score_functions.calc_lap_score(features)
+    min_lap_score =  numpy.min(result_lap_score)
+    range_lap_score = numpy.ptp(result_lap_score)
+    standardized.append((result_lap_score - min_lap_score) / range_lap_score)
+    non_standardized.append(result_lap_score)
 
     labels.append('MCFS')
-    # data.append(score_functions.calc_MCFS(feature_data, n_features))
+    result_mcfs = score_functions.calc_MCFS(features, n)
+    min_mcfs =  numpy.min(result_mcfs)
+    range_mcfs = numpy.ptp(result_mcfs)
+    standardized.append((result_mcfs - min_mcfs) / range_mcfs)
+    non_standardized.append(result_mcfs)
 
-    # labels.append('NDFS')
-    # data.append(score_functions.calc_NDFS(feature_data))
-  
-    # labels.append('UDFS')
-    # data.append(score_functions.calc_UDFS(feature_data))
+    labels.append('NDFS')
+    result_ndfs = score_functions.calc_NDFS(features)
+    min_ndfs =  numpy.min(result_ndfs)
+    range_ndfs = numpy.ptp(result_ndfs)
+    standardized.append((result_ndfs - min_ndfs) / range_ndfs)
+    non_standardized.append(result_ndfs)
+
+    labels.append('SPEC')
+    result_spec = score_functions.calc_SPEC(features)
+    min_spec =  numpy.min(result_spec)
+    range_spec = numpy.ptp(result_spec)
+    standardized.append((result_spec - min_spec) / range_spec)
+    non_standardized.append(result_spec)
+
+    labels.append('UDFS')
+    result_udfs = score_functions.calc_UDFS(features)
+    min_udfs =  numpy.min(result_udfs)
+    range_udfs = numpy.ptp(result_udfs)
+    standardized.append((result_udfs - min_udfs) / range_udfs)
+    non_standardized.append(result_udfs)
 
 
-    return data, labels
+    return standardized, non_standardized, labels
 
 
 
 
 
-def generate_dict(feature_labels, score_labels, score_data, title=''):
+def generate_dict(feature_labels, score_labels, standardized, non_standardized, title=''):
     values_keys = list(score_labels)
     values_keys.insert(0, 'name')
 
@@ -67,10 +88,10 @@ def generate_dict(feature_labels, score_labels, score_data, title=''):
     for k in  range(0, len(feature_labels), 1):
         json_element = {}
         json_element['name'] = feature_labels[k]
-        for i in range(0, len(score_data), 1):
-            data = score_data[i].tolist()
+        for i in range(0, len(standardized), 1):
+            data = standardized[i].tolist()
             values[k][i] = data[k]
-            json_element[score_labels[i]] = score_data[i][k]
+            json_element[score_labels[i]] = non_standardized[i][k]
         json.append(json_element)
 
 
