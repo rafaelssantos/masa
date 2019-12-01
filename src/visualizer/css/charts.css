@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.charts-container-top{
+/* .charts-container-top{
     width: 90%;
     margin: auto;
     height: calc(100% - 34rem);
@@ -17,11 +17,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
+} */
 
 
 .radar-container{
-    width: calc(40% - 2rem);
+    width: 40rem;
+    /* max-height: fit-content; */
     margin: 1rem;
     display: flex;
     align-items: center;
@@ -29,19 +30,19 @@
 
 
 .horizontal-container{
-    width: calc(60% - 2rem);
+    width: 100%;
     margin: 1rem;
     display: flex;
 }
 
 
-.charts-container-bottom {
+/* .charts-container-bottom {
     width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 
 
