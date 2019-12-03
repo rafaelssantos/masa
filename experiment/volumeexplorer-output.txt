@@ -1,0 +1,6 @@
+/home/rafaelssantos/experiment/bucky-ball/bucky-ball.raw
+/home/rafaelssantos/experiment/foot/foot.raw
+/home/rafaelssantos/experiment/engine/engine.raw
+/home/rafaelssantos/experiment/visible-male-head/visible-male-head.raw
+/home/rafaelssantos/experiment/tooth/tooth.raw
+/home/rafaelssantos/experiment/tomato/tomato.raw

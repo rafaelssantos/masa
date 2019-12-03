@@ -5,18 +5,19 @@ import numpy
 
 
 def help():
-    print ("--input or -i\t\tFile path that contains the dataset")
+    print ("--input or -i\t\t\tFile path that contains the dataset")
     print ("--feature-count or -m\t\tNumber of features")
     print ("--instance-count or -n\t\tIntances count for the output processing")
-    print ("--output or -o\t\tFile path to save the result of the processing")
+    print ("--output or -o\t\t\tFile path to save the result of the processing")
 
 
 
 def extract_sys_params():
-    PARAM_COUNT = 9
+    PARAM_COUNT = 7
     input_file_path = None
     feature_count = None
     instance_count = None
+    ouput_file_path = None
 
     if len(sys.argv) == 2 and (sys.argv[1] == "-h" or sys.argv[1] == "--help"):
         help()
@@ -36,12 +37,12 @@ def extract_sys_params():
                 instance_count = int(sys.argv[i])
             if sys.argv[i] == '-o' or sys.argv[i] == "--output":
                 i = i + 1
-                output_path = sys.argv[i]
+                ouput_file_path = sys.argv[i]
         
         
-        if output_path == None and input_file_path != None:
+        if ouput_file_path == None and input_file_path != None:
             end = input_file_path.rfind("/") + 1
-            output_path = input_file_path[0:end] + "_output.csv"
+            ouput_file_path = input_file_path[0:end] + "_output.csv"
     
     return input_file_path, feature_count, instance_count, ouput_file_path
         
@@ -50,7 +51,7 @@ def extract_sys_params():
 
 
 
-def main:
+def main():
     input_file_path = None
     feature_count = None
     instance_count = None
@@ -64,8 +65,8 @@ def main:
 
 
 
-    data = numpy.fromfile(input_file_path)                     #Reading a binary file of float array 
-    m = int(feature_count)   
+    data = numpy.fromfile(input_file_path, dtype='f4')                     #Reading a binary file of float array 
+    m = int(feature_count)
     data = numpy.reshape(data, (data.shape[0]//m, m))    #Reshaping to m columns
 
 
