@@ -59,7 +59,7 @@ def main():
     # data_file_path, labels_file_path, n_features, output_file_path = extract_sys_params()    
 
     n_features = 4
-    output_file_path = "/home/rafaelssantos/teste.out.csv"
+    output_file_path = "/home/rafaelssantos/iris.json"
 
     # if data_file_path == None or labels_file_path == None or n_features == None:
     #     print("Incorret parameters.\nType -h or --help for help.")
@@ -68,7 +68,8 @@ def main():
 
     # feature_labels = manager.load_labels(labels_file_path)
     # feature_data = manager.load_data(data_file_path)
-    feature_labels = ["1", "2", "3", "4"]
+    feature_labels = ['sepal length', 'sepal width', 'petal length', 'petal width']
+
     feature_data = iris.data
     standardized, non_standardized, score_labels = manager.calc_scores(feature_data, n_features)
 

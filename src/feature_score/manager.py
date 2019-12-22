@@ -64,7 +64,8 @@ def calc_scores(features, n):
     result_spec = score_calc.calc_SPEC(features)
     min_spec =  numpy.min(result_spec)
     range_spec = numpy.ptp(result_spec)
-    result_spec_standardized = 1 - (result_spec - min_spec) / range_spec
+    # result_spec_standardized = 1 - (result_spec - min_spec) / range_spec
+    result_spec_standardized = (result_spec - min_spec) / range_spec
     standardized.append(result_spec_standardized)
     non_standardized.append(result_spec)
 
